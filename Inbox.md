@@ -1,0 +1,182 @@
+# Матан
+
+
+## Второй признак сходимости
+#statement 
+Тут какая-то теорема, которую я пропустил, но она про $\displaystyle \lim_{n \to \infty} \frac{a_n}{b_n}$ и про сходимость / расходимость одновременно.
+
+```LaTeX
+\sum_{n=1}^\infty a_n
+```
+
+#example 
+
+Обобщённый гармонический ряд
+$$
+\sum_{n=1}^\infty \frac{1}{n^p}
+$$
+
+Для  этого смотрим на такой ряд:
+$$
+\sum_{n=1}^\infty \bigg( \frac{1}{n^q} - \frac{1}{(n+1)^q} \bigg)
+$$
+
+$$
+s_n = \frac{1}{1^q} - \frac{1}{2^q} + \frac{1}{2^q} - \frac{1}{3^q} + \dots = 1 - \frac{1}{(n+1)^q}
+$$
+
+$q > 0 \implies$ сходится к 1. Иначе расходится.
+
+Теперь смотрим на общее слагаемое:
+$$
+\begin{align*}
+a_n &= \frac{1}{n^q} - \frac{1}{(n+1)^q}  = \frac{1}{n^q} \bigg(1 - \frac{n^q}{(n+1)^q} \bigg) = \frac{1}{n^q} \bigg(1 - \big(1 + 1/n \big)^{-q} \bigg) = \\
+&= \frac{1}{n^q} \bigg(1 - 1 + \frac{q}{n} + o(\frac{1}{q}) \bigg) = \frac{q}{n^{q+1}} + o(\frac{1}{q})
+\end{align*}
+$$
+
+Так как 
+$$
+\lim_{n \to \infty} \frac{a_n}{1 / n^p} = q,
+$$ряд сходится при $q > 0 \implies p > 1$. Расходится при $p < 1$
+
+## Третий признак сравнения
+#statement 
+
+Даны $\sum_{n=1}^\infty a_n$ и $\sum_{n=1}^\infty b_n$ с положительными членами и
+$$
+\frac{a_{n+1}}{a_n} \le \frac{b_{n+1}}{b_n}
+$$
+Тогда:
+1. $B$ сходится $\implies$ $A$ сходится
+2. $A$ расходится $\implies$ $B$ расходится
+
+### Доказательство
+#proof-idea 
+
+Выписать эти неравенства для $n=1, 2, \dots, n$ и перемножить телескопически. Дальше оценочный признак сравнения.
+
+
+## Признак Даламбера
+#statement 
+
+Дан ряд $\sum_{n=1}^\infty a_n$ с положительными членами. Считаем $\frac{a_{n+1}}{a_n} = q$. Если $q < 1$, ряд сходится, если $q \ge 1$, то расходится.
+
+### Доказательство
+#proof-idea 
+
+Рассмотреть ряд с членом $b_n = q^n$ и использовать прошлое утверждение.
+
+## Признак Даламбера в предельной форме
+#statement 
+ $\overline{\lim}_{n \to \infty} \frac{a_{n+1}}{a_n} < 1 \implies$ сходится.
+$\underline{\lim}_{n \to \infty} \frac{a_{n+1}}{a_n} \ge 1 \implies$ расходится
+
+Задача. 
+1. Написать док-во для случая, когда существует конечный предел $\lim_{n \to \infty} \frac{a_{n+1}}{a_n} < 1 \implies$.
+2. Показать, что в п. 2 нельзя заменить нижний предел на верхний.
+
+#proof-idea 
+1. Выбрать $q_1$ между $q$ и $1$  (брали середину) в соответствии с определением верхнего предела и свести к прошлому утверждению. (Отдельно надо доказать, что ... что-то)
+2. нарушается необходимое условие ($\frac{a_{n_k}+1}{a_{n_k}} \to r >= 1$)
+
+
+## Признак Коши в оценочной и предельной форме
+
+Сам напиши.
+
+
+
+# Дифгем
+
+Книги и учебники — на почте
+
+## Анализ вектор-функций
+
+Будем жить с $(\mathbb{R}^n, \rho)$.
+Также будет использоваться $E$ — евклибово пр-во. (В лекциях используют $\bar{E}$ для обозначения вектрного евклидова пространства, а $E$ — для точечных пр-в).
+
+#def 
+Вектор-функция на $U \in \mathbb{R}^n$ — это отоб-ние $\bar{r}: U \to E$.
+
+#def 
+Пусть $\bar{r}: U \to E$ — ВФ, $\bar{r}_0 \in E, u_0 \in \bar{U}$
+Тогда $\bar{r_0} = \lim_{u \to u_0} \bar{r}(u) \iff \lim_{u \to u_0} |\bar{r}(u) - \bar{r}_0| = 0$
+
+(На этом этапе за заколебался писать векторы)
+
+Фиксируем ОНБ $e = (e_1, e_2, e_3)$
+Тогда $r(u) = x^1 (u) e_1 + x^2 (u) e_2 + x^3 (u) e_3 = /$ сука... $/ = x^i (u) e_i$.
+
+## Лемма
+#statement 
+
+Пусть $r(u) = x^i (u) e^i, \quad u_0 \in \bar{U}, r_0 = x^i_0 e_i$
+Тогда $r_0 = \lim_{u \to u_0} r(u) \iff x^i_0 = \lim_{u \to u_0} x^i_0(u) \quad \forall i$
+
+#proof-idea 
+$\implies$ Использовать определение сходимости к вектору и оценить сверху
+$\impliedby$ Расписать $n$ определений, взять наименьшее $\delta _i$. Использовать оценку (модуль вектора $
+$\le$ длины катета $\cdot \ \sqrt{n}$)
+
+## Свойства пределов вектор-функций
+#statement
+
+Теорема про то, что предел операций над векторами — это вектор из пределов.
+
+## Теорема 2
+#statement 
+
+Теорема. Вектор-функция непрерывна $\iff$ непрерывны все компоненты.
+
+## Свойства пределов вектор-функций
+#statement 
+
+(Свойства + Теорема 2) Функции непрерывны в $u_0$. Тогда векторные операции над ними тоже непрерывны в $u_0$.
+
+## Производные
+
+### Частные производные
+
+#def
+Тут определение $\partial _i \bar{r}(u)$.
+
+Это тоже вектор-функция, кстати. Так что можно дальше считать: $\partial _{ji} \bar{r}(u)$
+
+#def 
+
+Если все $\partial _{i_1 \dots i_k} r(u)$, то говорят, что $r$ $m$ раз непрерывно дифференцируема ($r \in C^{(m)}(U, E)$).
+
+## Теорема о производных
+1. Пусть $r, p, q \in C^{(m)}(U, E)$ и $f \in C^{(m)}(U, \mathbb{R})$. Тогда $r+g, f \cdot r, [r, g] \in C^{(m)}(U, E)$ и $(r, g), (r, p, q) \in C^{(m)}(U, \mathbb{R})$
+2. (Как брать производные)
+$$
+\begin{align*}
+(1\degree) \quad \partial_i (r + p) &= \partial_i r + \partial_i p; \\
+(2\degree) \quad \partial_i (f \cdot r) &= \partial_i f \cdot r + f \cdot \partial_i r; \\
+(3\degree) \quad \partial_i (r, p) &= (\partial_i r, p) + (r, \partial_i p); \\
+(4\degree) \quad \partial_i [r, p] &= [\partial_i r, p] + [r, \partial_i p]; \\
+(5\degree) \quad \partial_i (r, p, q) &= (\partial_i r, p, q) + (r, \partial_i p, q) + (r, p, \partial_i q)
+\end{align*}
+$$
+#proof 
+Очев.
+
+
+# Англ
+
+1. Do you like art?
+2. Have you ever made art yourself?
+3. Art galleries or looking at art online?
+4. Favorite piece of art / artist
+
+
+## Describe a painting
+
+Is it landscape / seascape / cityscape / portrait / still life / genre scene?
+Who the painter is / was + some details.
+
+#### Size
+- Miniature
+- Tryptich
+- Fresco
