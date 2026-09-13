@@ -85,8 +85,82 @@ $\underline{\lim}_{n \to \infty} \frac{a_{n+1}}{a_n} \ge 1 \implies$ расхо�
 
 Сам напиши.
 
+---
+
+#statement 
+Теорема. Если ряд сходится по Даламберу, он сходится и по Коши.
+(Обратное неверно — пример?)
+
+#statement 
+
+### Признак Раабе
+
+#### В оценочной форме
+$\sum_{n=1}^\infty a_n$ — ряд с положительными слаг. 
+1. если $a_{n+1}/a_n \ge 1 - 1/n$, ряд расх
+2. если сущ. $\alpha > 1: a_{n+1}/a_n \le 1 - \alpha/n$, то ряд сход.
+
+#proof-idea 
+Использовать третий признак сравнения
+1. с гармоническим рядом
+2. с обобщённым гармоническим рядом
+
+#statement 
+#### В предельной форме
+То же самое и $R = \lim_{n \to \infty} n \cdot \big( 1 - \frac{a_{n+1}}{a_n}\big)$
+Сходится при $R > 1$
+Расходится при $R < 1$.
+
+### Признак Куммера
+
+#statement 
+#### В оценочной форме
+Даны $\sum_{n=1}^\infty a_n$ и $\sum_{n=1}^\infty b_n$.
+
+1. Если сущ $\alpha: b_n - b_{n+1} > \alpha \implies \sum_{n=1}^\infty a_n$ сходится.
+2. Если $\alpha: b_n - b_{n+1} \le 0$ и $\sum_{n=1}^\infty b_n$ расходится. тОгда $\sum_{n=1}^\infty a_n$ сход.
+
+#proof-idea 
+1. перемножить и оценить частичные суммы сверху
+2. перемножить и исользовать третий признак сравнения
+
+Следствие: $b_n = 1 \implies$ признак Даламбера
+Следствие: $b_n = 1 \implies$ признак Раабе
+
+#statement 
+#### В предельной форме
+То же самое, но $\ell = \lim (\dots)$
+$\ell > 0 \implies$ $sum a_n$ сходится
+$\ell < 0$ и ряд $b_n$ расходится. Тогда $a_n$ расход
+
+Дальше те же самые следствия — но в предельной форме.
+
+Следствие 3 (признак Бертрана?): $b_n = n \ln n$. $B = \lim \ln n (n (1 - a_{n+1}/a_n) - 1)$
+1. $B > 1 \implies$ сходится
+2. $B < 1 \implies$ расходится
+
+#proof-idea Написать $\ell$, адальше методом Тараса Бульбы. Надо получить связь вида $B = \ell + 1$.
+
+Интегральный признак Коши надо добавить
+
+### Признак Гаусса
+Пусть
+$a_n / a_{n+1} = \lambda + \mu / n + \theta_n / n^{1 + \gamma}$
+$\gamma > 0$ и $\theta_n$ ограниченная последовательность.
+1. $\lambda > 1 \implies$ сходится. $\lambda < 1 \implies$ расходится 
+2. $\lambda = 1, \mu > 1 \implies$ сход. $\lambda = 1, \mu \le 1 \implies$ расходится
+
+#proof-idea
+1. в пределе тут написан признак Даламбера
+2. подставить $\lambda = 1$ и выразить $\mu$ — получится признак Раабе. Используем предел
+3. $\lambda = \mu = 1 \implies$ снова выразить дробь Раабе и свести к признаку Бертрана и взть предел
 
 
+
+
+
+
+---
 # Дифгем
 
 Книги и учебники — на почте
@@ -161,22 +235,3 @@ $$
 $$
 #proof 
 Очев.
-
-
-# Англ
-
-1. Do you like art?
-2. Have you ever made art yourself?
-3. Art galleries or looking at art online?
-4. Favorite piece of art / artist
-
-
-## Describe a painting
-
-Is it landscape / seascape / cityscape / portrait / still life / genre scene?
-Who the painter is / was + some details.
-
-#### Size
-- Miniature
-- Tryptich
-- Fresco
